@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamster Kombat</title>
+    <title>Hamster Kombat Clicker</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -72,10 +72,12 @@
             background-color: white;
             padding: 10px;
             margin-bottom: 20px;
+            cursor: pointer;
         }
         .footer {
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            flex-wrap: wrap;
             margin-top: 20px;
         }
         .footer button {
@@ -83,9 +85,11 @@
             border: none;
             border-radius: 10px;
             color: white;
-            padding: 10px 20px;
+            padding: 10px;
             cursor: pointer;
             transition: background-color 0.3s;
+            flex: 1 1 45%; /* Adjusted to fit within the container */
+            margin: 5px 2px; /* Adjusted for better spacing */
         }
         .footer button:hover {
             background-color: #0056b3;
@@ -103,7 +107,7 @@
         <div id="homePage" class="page active">
             <div class="header">
                 <div class="profile">
-                    <p class="name" id="userName">DampFler // (CEO)</p>
+                    <p class="name" id="userName">User // (CEO)</p>
                     <p>Choose exchange</p>
                 </div>
                 <img src="https://via.placeholder.com/40" alt="Profile">
@@ -123,13 +127,13 @@
                 </div>
             </div>
             <div class="coins">
-                <p>143</p>
+                <p id="coinCount">100</p>
             </div>
             <div class="level">
                 <p>Bronze</p>
                 <p>Level 1/10</p>
             </div>
-            <div class="character">
+            <div class="character" onclick="handleClick()">
                 <img src="https://via.placeholder.com/100" alt="Character">
             </div>
             <div class="footer">
@@ -181,6 +185,13 @@
                 page.classList.remove('active');
             });
             document.getElementById(pageId).classList.add('active');
+        }
+
+        function handleClick() {
+            const coinCountElement = document.getElementById('coinCount');
+            let coins = parseInt(coinCountElement.innerText, 10);
+            coins += 1;
+            coinCountElement.innerText = coins;
         }
 
         window.onload = function() {
