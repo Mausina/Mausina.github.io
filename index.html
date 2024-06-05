@@ -2,9 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Hamster Kombat Clicker</title>
     <style>
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none; 
+            -ms-user-select: none; 
+            user-select: none; 
+        }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -88,8 +94,8 @@
             padding: 10px;
             cursor: pointer;
             transition: background-color 0.3s;
-            flex: 1 1 45%; /* Adjusted to fit within the container */
-            margin: 5px 2px; /* Adjusted for better spacing */
+            flex: 1 1 45%; 
+            margin: 5px 2px; 
         }
         .footer button:hover {
             background-color: #0056b3;
