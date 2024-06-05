@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #201c1c;
+            color: white;
+        }
+        .container {
+            background-color: #333;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .progress-bar {
+            width: 100%;
+            background-color: #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .progress {
+            height: 20px;
+            background-color: #4caf50;
+            width: 0%;
+            border-radius: 5px;
+        }
+        .page {
+            display: none;
+        }
+        .page.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="homePage" class="page active">
+            <h1>Clicker Game</h1>
+            <p>Tokens: <span id="tokenCount">0</span></p>
+            <button onclick="handleClick()">Click Me!</button>
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+            <button onclick="handleUpgrade()">Upgrade (Cost: 1000 tokens)</button>
+            <p id="upgradeMessage">Current Limit: 10000 tokens/day</p>
+            <button onclick="showPage('gamePage')">Game</button>
+            <button onclick="showPage('socialPage')">Social</button>
+        </div>
+
+        <div id="gamePage" class="page">
+            <h1>Game Page</h1>
+            <p>Game features will be here.</p>
+            <button onclick="showPage('homePage')">Back to Home</button>
+        </div>
+
+        <div id="socialPage" class="page">
+            <h1>Social Page</h1>
+            <p>Social features will be here.</p>
+            <button onclick="showPage('homePage')">Back to Home</button>
+        </div>
+    </div>
+
+    <script>
+        let tokens = 0;
+        let dailyLimit = 10000;
+        let tokensPerClick = 1;
+        let progressBar = document.getElementById('progressBar');
+        let tokenCountElement = document.getElementById('tokenCount');
+        let upgradeMessageElement = document.getElementById('upgradeMessage');
+
+        function handleClick() {
+            if (tokens < dailyLimit) {
+                tokens += tokensPerClick;
+                updateDisplay();
+            }
+        }
+
+        function updateDisplay() {
+            tokenCountElement.innerText = tokens;
+            progressBar.style.width = (tokens / dailyLimit * 100) + '%';
+        }
+
+        function handleUpgrade() {
+            if (tokens >= 1000) {
+                tokens -= 1000;
+                dailyLimit += 5000;
+                updateDisplay();
+                upgradeMessageElement.innerText = `Current Limit: ${dailyLimit} tokens/day`;
+            } else {
+                upgradeMessageElement.innerText = "Not enough tokens to upgrade!";
+            }
+        }
+
+        function showPage(pageId) {
+            let pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            document.getElementById(pageId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
