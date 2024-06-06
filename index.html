@@ -10,8 +10,6 @@
             -moz-user-select: none; 
             -ms-user-select: none; 
             user-select: none; 
-        }
-        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -80,6 +78,35 @@
             margin-bottom: 20px;
             cursor: pointer;
         }
+        .button-container {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+        .action-button {
+            background-color: #555;
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .action-button:hover {
+            background-color: #777;
+            transform: translateY(-2px);
+        }
+        .action-button:active {
+            background-color: #999;
+            transform: translateY(2px);
+        }
         .footer {
             display: flex;
             justify-content: space-between;
@@ -142,13 +169,6 @@
             <div class="character" onclick="handleClick()">
                 <img src="https://via.placeholder.com/100" alt="Character">
             </div>
-            <div class="footer">
-                <button onclick="showPage('exchangePage')">Exchange</button>
-                <button onclick="showPage('minePage')">Mine</button>
-                <button onclick="showPage('friendsPage')">Friends</button>
-                <button onclick="showPage('earnPage')">Earn</button>
-                <button onclick="showPage('airdropPage')">Airdrop</button>
-            </div>
         </div>
 
         <div id="exchangePage" class="page">
@@ -182,6 +202,15 @@
         </div>
     </div>
 
+    <!-- Buttons at the bottom of the page -->
+    <div class="button-container">
+        <button class="action-button" onclick="showPage('exchangePage')">Exchange</button>
+        <button class="action-button" onclick="showPage('minePage')">Mine</button>
+        <button class="action-button" onclick="showPage('friendsPage')">Friends</button>
+        <button class="action-button" onclick="showPage('earnPage')">Earn</button>
+        <button class="action-button" onclick="showPage('airdropPage')">Airdrop</button>
+    </div>
+
     <script>
         const tg = window.Telegram.WebApp;
 
@@ -207,3 +236,4 @@
     </script>
 </body>
 </html>
+
