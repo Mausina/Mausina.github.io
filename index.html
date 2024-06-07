@@ -1,254 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Hamster Kombat Clicker</title>
-    <style>
-        body {
-            -webkit-user-select: none;
-            -moz-user-select: none; 
-            -ms-user-select: none; 
-            user-select: none; 
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #121212;
-            color: white;
-        }
-        .container {
-            background-color: #1e1e1e;
-            padding: 20px;
-            border-radius: 15px;
-            width: 350px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        .header img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-        .profile {
-            text-align: left;
-        }
-        .profile p {
-            margin: 0;
-        }
-        .profile .name {
-            font-weight: bold;
-        }
-        .stats {
-            display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-        }
-        .stats div {
-            text-align: center;
-        }
-        .stats div p {
-            margin: 5px 0;
-        }
-        .coins {
-            font-size: 48px;
-            margin: 20px 0;
-        }
-        .level {
-            margin: 20px 0;
-        }
-        .level p {
-            margin: 5px 0;
-        }
-        .character img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background-color: white;
-            padding: 10px;
-            margin-bottom: 20px;
-            cursor: pointer;
-        }
-        .button-container {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background-color: #333;
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-        }
-        .action-button {
-            background-color: #555;
-            color: #fff;
-            border: none;
-            border-radius: 12px;
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .action-button:hover {
-            background-color: #777;
-            transform: translateY(-2px);
-        }
-        .action-button:active {
-            background-color: #999;
-            transform: translateY(2px);
-        }
-        .footer {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-top: 20px;
-        }
-        .footer button {
-            background-color: #007bff;
-            border: none;
-            border-radius: 10px;
-            color: white;
-            padding: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            flex: 1 1 45%; 
-            margin: 5px 2px; 
-        }
-        .footer button:hover {
-            background-color: #0056b3;
-        }
-        .page {
-            display: none;
-        }
-        .page.active {
-            display: block;
-        }
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Document</title>
 </head>
 <body>
-    <div class="container">
-        <div id="homePage" class="page active">
-            <div class="header">
-                <div class="profile">
-                    <p class="name" id="userName">User // (CEO)</p>
-                    <p>Choose exchange</p>
-                </div>
-                <img src="https://via.placeholder.com/40" alt="Profile">
-            </div>
-            <div class="stats">
-                <div>
-                    <p>Earn per tap</p>
-                    <p>+1</p>
-                </div>
-                <div>
-                    <p>Coins to level up</p>
-                    <p>5K</p>
-                </div>
-                <div>
-                    <p>Profit per hour</p>
-                    <p>0</p>
-                </div>
-            </div>
-            <div class="coins">
-                <p id="coinCount">100</p>
-            </div>
-            <div class="level">
-                <p>Bronze</p>
-                <p>Level 1/10</p>
-            </div>
-            <div class="character" onclick="handleClick()">
-                <img src="https://via.placeholder.com/100" alt="Character">
-            </div>
-        </div>
+	<div class="container">
+		<div class="inner">
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn1">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn2">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn3">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn4">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn5">Add</button>
+			</div>
+			<div class="item">
+				<img src="1.png" alt="" class="img">
+				<button class="btn" id="btn6">Add</button>
+			</div>
+		</div>
+	</div>
+	<div class="usercard" id="usercard">
+		
+	</div>
 
-        <div id="exchangePage" class="page">
-            <h1>Exchange Page</h1>
-            <p>Exchange features will be here.</p>
-            <button onclick="showPage('homePage')">Back to Home</button>
-        </div>
-
-        <div id="minePage" class="page">
-            <h1>Mine Page</h1>
-            <p>Mine features will be here.</p>
-            <button onclick="showPage('homePage')">Back to Home</button>
-        </div>
-
-        <div id="friendsPage" class="page">
-            <h1>Friends Page</h1>
-            <p>Friends features will be here.</p>
-            <button onclick="showPage('homePage')">Back to Home</button>
-        </div>
-
-        <div id="earnPage" class="page">
-            <h1>Earn Page</h1>
-            <p>Earn features will be here.</p>
-            <button onclick="showPage('homePage')">Back to Home</button>
-        </div>
-
-        <div id="airdropPage" class="page">
-            <h1>Airdrop Page</h1>
-            <p>Airdrop features will be here.</p>
-            <button onclick="showPage('homePage')">Back to Home</button>
-        </div>
-    </div>
-
-    <!-- Buttons at the bottom of the page -->
-    <div class="button-container">
-        <button class="action-button" onclick="showPage('exchangePage')">Exchange</button>
-        <button class="action-button" onclick="showPage('minePage')">Mine</button>
-        <button class="action-button" onclick="showPage('friendsPage')">Friends</button>
-        <button class="action-button" onclick="showPage('earnPage')">Earn</button>
-    </div>
-
-    <script>
-        const tg = window.Telegram.WebApp;
-
-        function showPage(pageId) {
-            let pages = document.querySelectorAll('.page');
-            pages.forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(pageId).classList.add('active');
-        }
-
-        function handleClick(taps) {
-        const coinCountElement = document.getElementById('coinCount');
-        let coins = parseInt(coinCountElement.innerText, 10) || 0; // Initialize if not set
-
-        // Calculate coin gain based on taps
-        let coinGain = taps;  // Single tap gain
-
-        // Add logic for additional taps (optional)
-       if (taps >= 2) {
-        coinGain *= 2;  // Double tap gain (example)
-        }
-
-        coins += coinGain;
-        coinCountElement.innerText = coins;
-        }
-
-        const characterElement = document.getElementById('character');
-
-        characterElement.addEventListener('touchstart', (event) => {
-        const touches = event.touches.length;
-        handleClick(touches);
-         });
-
-        window.onload = function() {
-            const userName = tg.initDataUnsafe.user ? tg.initDataUnsafe.user.first_name : "Guest";
-            document.getElementById('userName').innerText = `${userName} // (CEO)`;
-        }
-    </script>
+	<script src="https://telegram.org/js/telegram-web-app.js"></script>
+	<script src="app.js"></script>
 </body>
 </html>
-
