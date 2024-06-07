@@ -221,12 +221,28 @@
             document.getElementById(pageId).classList.add('active');
         }
 
-        function handleClick() {
-            const coinCountElement = document.getElementById('coinCount');
-            let coins = parseInt(coinCountElement.innerText, 10);
-            coins += 1;
-            coinCountElement.innerText = coins;
+        function handleClick(taps) {
+        const coinCountElement = document.getElementById('coinCount');
+        let coins = parseInt(coinCountElement.innerText, 10) || 0; // Initialize if not set
+
+        // Calculate coin gain based on taps
+        let coinGain = taps;  // Single tap gain
+
+        // Add logic for additional taps (optional)
+       if (taps >= 2) {
+        coinGain *= 2;  // Double tap gain (example)
         }
+
+        coins += coinGain;
+        coinCountElement.innerText = coins;
+        }
+
+        const characterElement = document.getElementById('character');
+
+        characterElement.addEventListener('touchstart', (event) => {
+        const touches = event.touches.length;
+        handleClick(touches);
+         });
 
         window.onload = function() {
             const userName = tg.initDataUnsafe.user ? tg.initDataUnsafe.user.first_name : "Guest";
